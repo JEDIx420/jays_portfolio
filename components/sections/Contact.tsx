@@ -1,16 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { 
   Mail, 
   Phone, 
-  Calendar,
-  Send,
-  MessageSquare
+  Calendar
 } from 'lucide-react';
 
 const contactMethods = [
@@ -64,7 +60,7 @@ export function Contact() {
             <h3 className="text-3xl font-bold text-foreground mb-4">
               Ready to build something amazing? Let's talk AI, growth, and GTM.
             </h3>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <div className="flex justify-center mt-8">
               <Button
                 size="lg"
                 onClick={() => window.open('https://calendly.com/jayanand-tars/15min', '_blank')}
@@ -73,30 +69,21 @@ export function Contact() {
                 <Calendar className="w-5 h-5 mr-2" />
                 Schedule a Call
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => document.querySelector('#contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-8"
-              >
-                <MessageSquare className="w-5 h-5 mr-2" />
-                Send a Message
-              </Button>
             </div>
           </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Methods */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <h3 className="text-2xl font-bold text-foreground mb-6">Get in Touch</h3>
-            
+        {/* Contact Methods */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto"
+        >
+          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Get in Touch</h3>
+          
+          <div className="grid md:grid-cols-3 gap-6">
             {contactMethods.map((method, index) => (
               <motion.div
                 key={method.title}
@@ -105,14 +92,14 @@ export function Contact() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="hover:shadow-lg transition-all duration-300">
+                <Card className="hover:shadow-lg transition-all duration-300 text-center">
                   <CardContent className="p-6">
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-col items-center gap-4">
                       <div className="p-3 rounded-lg bg-primary/10 text-primary">
-                        <method.icon className="w-5 h-5" />
+                        <method.icon className="w-6 h-6" />
                       </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-foreground mb-1">{method.title}</h4>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2">{method.title}</h4>
                         <Button
                           variant="ghost"
                           onClick={() => window.open(method.link, '_blank')}
@@ -126,66 +113,8 @@ export function Contact() {
                 </Card>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            id="contact-form"
-          >
-            <Card className="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle>Send a Message</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                      Name
-                    </label>
-                    <Input id="name" placeholder="Your name" />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email
-                    </label>
-                    <Input id="email" type="email" placeholder="your@email.com" />
-                  </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                    Subject
-                  </label>
-                  <Input id="subject" placeholder="What's this about?" />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Message
-                  </label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Tell me about your project or idea..."
-                    className="min-h-[120px]"
-                  />
-                </div>
-                
-                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
-                </Button>
-                
-                <p className="text-sm text-muted-foreground text-center">
-                  I typically respond within 24 hours.
-                </p>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

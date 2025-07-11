@@ -51,7 +51,7 @@ export function About() {
           >
             <div className="text-muted-foreground space-y-4 text-lg leading-relaxed">
               <p>
-                Jayanand is a GTM strategist, product marketing leader, and sales operator with a track record of closing multi-million dollar deals, shipping AI automation tools, and training teams across geographies.
+                Jayanand is a GTM strategist, product marketing leader, and sales operator with a track record of closing deals, running and designing campaigns, building ICPs and lists and training teams across geographies.
               </p>
               <p>
                 He's currently VP of Growth at DataSemantics, where he leads GTM for products like Serina.ai. He's also the founder of zzenzzei, an AI education venture that helps non-tech professionals understand and use AI tools in real-world scenarios.

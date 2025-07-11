@@ -12,40 +12,40 @@ const projects = [
     description: 'A streamlined task automation system combining LLMs and workflows for solo operators.',
     technologies: ['n8n', 'ChatGPT', 'Notion API'],
     category: 'AI Automation',
-    codeLink: '#',
-    demoLink: '#'
+    codeLink: 'https://github.com/JEDIx420/flow_ai',
+    demoLink: null
   },
   {
     title: 'TaskMaster',
     description: 'A productivity dashboard with a Pomodoro timer and task tracker.',
     technologies: ['Supabase', 'Framer Motion', 'Google Sheets', 'Next.js'],
     category: 'Productivity',
-    codeLink: '#',
-    demoLink: '#'
+    codeLink: 'https://github.com/JEDIx420/TaskMaster',
+    demoLink: null
   },
   {
     title: 'zzenti',
     description: 'A calming mental wellness tool with guided audio and reflective journaling.',
     technologies: ['TypeScript', 'GPT-4o', 'Telegram API'],
     category: 'Wellness',
-    codeLink: '#',
-    demoLink: '#'
+    codeLink: 'https://github.com/JEDIx420/zzenti',
+    demoLink: null
   },
   {
     title: 'Mental Health Telegram Bot',
     description: 'A mood-tracking and check-in bot that helps users reflect through AI-generated prompts.',
     technologies: ['Telegram Bot API', 'Python', 'OpenAI'],
     category: 'AI Bot',
-    codeLink: '#',
-    demoLink: '#'
+    codeLink: null,
+    demoLink: 'https://t.me/zzenzzeihr_bot'
   },
   {
     title: 'Personal Assistant Telegram Bot',
     description: 'An AI-powered assistant that helps with daily routines, task logging, and reminders.',
     technologies: ['Telegram API', 'LangChain', 'OpenAI'],
     category: 'AI Assistant',
-    codeLink: '#',
-    demoLink: '#'
+    codeLink: null,
+    demoLink: 'https://t.me/zzenzzei_bot'
   }
 ];
 
@@ -105,24 +105,28 @@ export function Projects() {
                   </div>
 
                   <div className="flex gap-2 pt-4">
-                    <Button
-                      variant="default"
-                      size="sm"
-                      onClick={() => window.open(project.codeLink, '_blank')}
-                      className="flex-1"
-                    >
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => window.open(project.demoLink, '_blank')}
-                      className="flex-1"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Demo
-                    </Button>
+                    {project.codeLink && (
+                      <Button
+                        variant="default"
+                        size="sm"
+                        onClick={() => window.open(project.codeLink, '_blank')}
+                        className="flex-1"
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </Button>
+                    )}
+                    {project.demoLink && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => window.open(project.demoLink, '_blank')}
+                        className="flex-1"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Demo
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>
